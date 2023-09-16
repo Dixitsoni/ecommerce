@@ -2,7 +2,7 @@ import Image from 'next/image'
 import styles from './page.module.css'
 
 async function fetchContent() {
-  const res = await fetch(process.env.NEXT_PUBLIC_SERVICE)
+  const res = await fetch(process.env.NEXT_PUBlIC_SERVICE)
   const contentData = await res.json()
   return contentData
 }
