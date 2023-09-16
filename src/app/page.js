@@ -1,16 +1,31 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 
-export default function Home() {
+async function fetchContent() {
+  const res = await fetch(process.env.NEXT_PUBLIC_SERVICE)
+  const contentData = await res.json()
+  return contentData
+}
+
+export default async function Home() {
+
+  const data = await fetchContent()
+  console.log(data.story.content.product_first, 'content')
   return (
     <main className={styles.main}>
+      <h1>{data.story.content.title}</h1>
+      <div style={{ display: 'flex' }}>
+        <div><img src={data.story.content.product_first.filename} alt='' /></div>
+        <div><img src={data.story.content.product_second.filename} alt='' /></div>
+        <div><img src={data.story.content.product_third.filename} alt='' /></div>
+      </div>
       {/* <div className={styles.description}> */}
-        {/* <p>
+      {/* <p>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.js</code>
         </p> */}
-        {/* <div> */}
-          {/* <a
+      {/* <div> */}
+      {/* <a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
