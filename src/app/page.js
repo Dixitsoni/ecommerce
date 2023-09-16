@@ -1,16 +1,13 @@
-import Image from 'next/image'
 import styles from './page.module.css'
 
 async function fetchContent() {
-  const res = await fetch(process.env.NEXT_PUBlIC_SERVICE)
+  const res = await fetch(process.env.NEXT_PUBLIC_SERVICE)
   const contentData = await res.json()
   return contentData
 }
 
 export default async function Home() {
-
   const data = await fetchContent()
-  console.log(data.story.content.product_first, 'content')
   return (
     <main className={styles.main}>
       <h1>{data.story.content.title}</h1>
