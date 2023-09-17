@@ -1,11 +1,11 @@
 import styles from './page.module.css'
-import Productcomponent from './pages/productcomponent'
+import Product from './pages/productcomponent'
 
 export default async function Home() {
   const data = await fetchContent()
   return (
     <main className={styles.main}>
-      <Productcomponent content={data?.story?.content} />
+      <Product content={data?.story?.content} />
     </main>
   )
 }

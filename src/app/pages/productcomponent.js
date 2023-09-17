@@ -1,6 +1,6 @@
 import React from 'react'
 
-async function Productcomponent({ content }) {
+async function Product({ content }) {
     return (
         <div>
             <h1>{content.title}</h1>
@@ -13,4 +13,4 @@ async function Productcomponent({ content }) {
     )
 }
 
-export default Productcomponent
+export default Product
