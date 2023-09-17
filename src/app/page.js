@@ -11,7 +11,7 @@ export default async function Home() {
 }
 
 async function fetchContent() {
-  const res = await fetch("https://api.storyblok.com/v2/cdn/stories/product?version=draft&&token=XNzUC77YIE5QzU9O6CuXpAtt", { next: { revalidate: 60 } })
+  const res = await fetch(process.env.NEXT_PUBLIC_URL_ID, { next: { revalidate: 60 } })
   const contentData = await res.json()
   return contentData
 }
