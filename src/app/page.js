@@ -12,7 +12,7 @@ export default async function Home() {
 }
 
 async function fetchContent() {
-  const res = await fetch(process.env.NEXT_PUBLIC_SERVICE)
+  const res = await fetch(process.env.NEXT_PRIVATE_TARGET)
   const contentData = await res.json()
   return contentData
 }
